@@ -1,5 +1,6 @@
 package com.example.graphql.service;
 
+import com.example.graphql.model.Club;
 import com.example.graphql.model.Player;
 import com.example.graphql.model.Team;
 import jakarta.annotation.PostConstruct;
@@ -28,8 +29,8 @@ public class PlayerService {
 		return players.stream().filter( player -> player.Id() == id ).findFirst();
 	}
 
-	public Player create(String name, Team team){
-		Player player = new Player( id.incrementAndGet(), name, team );
+	public Player create(String name, Team team, Club club){
+		Player player = new Player( id.incrementAndGet(), name, team, club );
 		players.add( player );
 		return player;
 	}
@@ -40,8 +41,8 @@ public class PlayerService {
 		return player;
 	}
 
-	public Player update(Integer id, String name, Team team){
-		Player updatedPlayer = new Player( id, name, team );
+	public Player update(Integer id, String name, Team team, Club club){
+		Player updatedPlayer = new Player( id, name, team, club );
 		Optional<Player> optional = players.stream().filter( plyer -> plyer.Id() == id ).findFirst();
 		if ( optional.isPresent() ){
 			Player player = optional.get();
@@ -56,9 +57,9 @@ public class PlayerService {
 
 	@PostConstruct
 	void init(){
-		players.add( new Player(id.incrementAndGet() , "MS Daiela", Team.MI ) );
-		players.add( new Player(id.incrementAndGet() , "Douglas", Team.DC ) );
-		players.add( new Player(id.incrementAndGet() , "George Miller", Team.CSK ) );
+		players.add( new Player(id.incrementAndGet() , "Mathew Daniela", Team.MI, new Club( 1 , "Barcelona" ) ) );
+		players.add( new Player(id.incrementAndGet() , "Douglas Bio", Team.DC, new Club( 2 , "Madrid" )  ) );
+		players.add( new Player(id.incrementAndGet() , "George Miller", Team.CSK , new Club( 3 , "Getafe" ) ) );
 	}
 
 }

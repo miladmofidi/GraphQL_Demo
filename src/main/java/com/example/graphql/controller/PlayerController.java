@@ -1,5 +1,6 @@
 package com.example.graphql.controller;
 
+import com.example.graphql.model.Club;
 import com.example.graphql.model.Player;
 import com.example.graphql.model.Team;
 import com.example.graphql.service.PlayerService;
@@ -22,23 +23,23 @@ public class PlayerController {
 	private final PlayerService playerService;
 
 	@QueryMapping
-	public List<Player> findAll() {
+	public List<Player> findAllPlayer() {
 		return playerService.findAll();
 	}
 
 	@QueryMapping
-	public Optional<Player> findOne(@Argument Integer id){
+	public Optional<Player> findOnePlayer(@Argument Integer id){
 		return playerService.findOne(id);
 	}
 
 	@MutationMapping
-	public Player create( @Argument String name, @Argument Team team) {
-		return playerService.create(name, team);
+	public Player create( @Argument String name, @Argument Team team, @Argument Club club) {
+		return playerService.create(name, team, club);
 	}
 
 	@MutationMapping
-	public Player update( @Argument Integer id, @Argument String name, @Argument Team team) {
-		return playerService.update(id, name, team);
+	public Player update( @Argument Integer id, @Argument String name, @Argument Team team, @Argument Club club) {
+		return playerService.update(id, name, team, club);
 	}
 
 	@MutationMapping

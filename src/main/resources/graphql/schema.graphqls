@@ -2,6 +2,12 @@ type Player {
     id: ID!
     name: String
     team: Team
+    club: Club
+}
+
+type Club{
+    id: ID!
+    name: String
 }
 
 enum Team {
@@ -10,13 +16,18 @@ enum Team {
     DC
 }
 
+input ClubInput {
+    id: ID!
+    name: String!
+}
+
 type Query {
-    findAll: [Player]
-    findOne(id: ID): Player
+    findAllPlayer: [Player]
+    findOnePlayer(id: ID): Player
 }
 
 type Mutation{
-    create(name: String, team: Team): Player
+    create(name: String, team: Team, club: ClubInput!): Player
     update(id: ID, name: String, team: Team): Player
     delete(id: ID): Player
 
