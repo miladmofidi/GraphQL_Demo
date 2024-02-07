@@ -20,10 +20,14 @@ input ClubInput {
     id: ID!
     name: String!
 }
+input PlayerFilter {
+    id: ID
+    clubName: String
+}
 
 type Query {
     findAllPlayer: [Player]
-    findOnePlayer(id: ID): Player
+    findOnePlayer(id: ID, filter: PlayerFilter): Player
 }
 
 type Mutation{
