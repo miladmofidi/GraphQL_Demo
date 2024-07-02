@@ -13,10 +13,6 @@ import org.springframework.stereotype.Controller;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Milad Mofidi (milad.mofidi@cmas-systems.com)
- * 2/5/2024
- */
 @Controller
 @RequiredArgsConstructor
 public class PlayerController {

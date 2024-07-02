@@ -10,20 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author Milad Mofidi (milad.mofidi@cmas-systems.com)
- * 2/6/2024
- */
+
 @Service
 public class ClubService {
 	public static List<Club> clubs = new ArrayList<>();
-	AtomicInteger id = new AtomicInteger(0);
 
 	@PostConstruct
 	void init(){
 		clubs.add( new Club( 1 , "Barcelona" ) )  ;
 		clubs.add( new Club( 2 , "Madrid" )  );
-		clubs.add( new Club( 3 , "Getafe" )  ) ;
+		clubs.add( new Club( 3 , "NY" )  ) ;
 	}
 
 }

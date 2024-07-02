@@ -11,10 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * @author Milad Mofidi (milad.mofidi@cmas-systems.com)
- * 2/5/2024
- */
+
 @Service
 public class PlayerService {
 
