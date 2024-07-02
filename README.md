@@ -18,3 +18,5 @@ deletePlayer
 findAllPlayers  
 findOnePlayer  
 
+### API URL:  
+http://localhost:8989/graphql
